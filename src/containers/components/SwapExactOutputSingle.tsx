@@ -19,7 +19,7 @@ export function SwapExactOutputSingle(props: AddLiquidityProps) {
   return (
     <Card>
       <Card.Body>
-        <h2>Swap Exact Input Single</h2>
+        <h2>Swap Exact Output Single</h2>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Control
             as="select"
@@ -135,7 +135,7 @@ export function SwapExactOutputSingle(props: AddLiquidityProps) {
             }
           }}
         >
-          Swap Exact Input Single
+          Swap Exact Output Single
         </Button>
       </Card.Body>
     </Card>

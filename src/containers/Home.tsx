@@ -37,16 +37,23 @@ export function Home() {
   return (
     <div>
       <h2>Reset Uniswap Factory</h2>
-      <p>Current Factory: {window.uniswapFactory.address}</p>
+      <p>
+        Current Factory-NFPM-SwapRouter: {window.uniswapFactory.address}-
+        {window.nonfungiblePositionManager.address}-{window.swapRouter.address}
+      </p>
       <p>Redeploying factory also resets deployed pools.</p>
       <Button
         disabled={deployFactorySpinner}
         onClick={async () => {
+          setDeployFactorySpinner(true);
           await deploy(window.provider);
           await updateState();
+          setDeployFactorySpinner(false);
         }}
       >
-        Redeploy Factory
+        {deployFactorySpinner
+          ? "Redeploying check metamask.."
+          : "Redeploy Factory"}
       </Button>
       <h2>Deploy New Pool</h2>
       <p>Please select kovan network on metamask</p>

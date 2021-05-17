@@ -130,15 +130,17 @@ export function Pool() {
                             .connect(window.provider.getSigner())
                             .initialize(initialPriceRootInput);
                           await tx.wait();
+                          await updateState();
                         } catch (e) {
                           alert(`Error: [${e.message}]`);
                         }
                       }}
                     >
                       Iniitalize
-                    </Button>
+                    </Button>{" "}
                   </>
                 ) : null}
+                (P=1 is 79228162514264337593543950336)
               </td>
             </tr>
             <tr>

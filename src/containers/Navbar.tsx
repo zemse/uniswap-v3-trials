@@ -7,6 +7,7 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import { loadContracts } from "../ethereum/contracts";
 
 export function Navbar() {
   const [poolAddrInput, setPoolAddrInput] = useState("");
@@ -23,14 +24,24 @@ export function Navbar() {
       <Form inline>
         <FormControl
           type="text"
-          placeholder="Pool Address"
+          placeholder="Factory-NFPM-SR"
           className="mr-sm-2"
           onChange={(e) => setPoolAddrInput(e.target.value)}
           value={poolAddrInput}
         />
-        <Link to={`/pool/${poolAddrInput}`}>
-          <Button variant="outline-info">Go</Button>
-        </Link>
+
+        <Button
+          variant="outline-info"
+          onClick={() => {
+            try {
+              loadContracts(poolAddrInput);
+            } catch (e) {
+              alert(e.message);
+            }
+          }}
+        >
+          Load Contracts
+        </Button>
       </Form>
     </NavbarRB>
   );
