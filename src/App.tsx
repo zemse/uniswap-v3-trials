@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Navbar } from "./containers/Navbar";
+import { Home } from "./containers/Home";
+import { Airdrop } from "./containers/Airdrop";
+import { Pool } from "./containers/Pool";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/airdrop" component={Airdrop} />
+        <Route path="/pool/:addr" component={Pool} exact />
+        <Route path="*">
+          <p>Looks like something went rong</p>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
