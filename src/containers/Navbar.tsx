@@ -18,7 +18,8 @@ export function Navbar() {
       </Link>
 
       <Nav className="mr-auto">
-        <Link to="/airdrop">Airdrop</Link>
+        <Link to="/airdrop">Airdrop_</Link>
+        <Link to="/calculator">_Calculator</Link>
       </Nav>
 
       <Form inline>

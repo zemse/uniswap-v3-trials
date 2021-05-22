@@ -4,6 +4,7 @@ import { Navbar } from "./containers/Navbar";
 import { Home } from "./containers/Home";
 import { Airdrop } from "./containers/Airdrop";
 import { Pool } from "./containers/Pool";
+import { Calculator } from "./containers/Calculator";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/airdrop" component={Airdrop} />
+        <Route path="/calculator" component={Calculator} />
         <Route path="/pool/:addr" component={Pool} exact />
         <Route path="*">
           <p>Looks like something went rong</p>
